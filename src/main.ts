@@ -18,6 +18,8 @@ cep.addEventListener('blur', async () => {
 })
 estado.addEventListener('change', async () => {
   let lista_cidades: string[] = []
+  cidade.disabled = true
+  cidade.innerHTML ='<option value="" selected>Procurando por cidades...</option>'
   const estado_ddds = ddds[estado.value as keyof typeof ddds]
   for (const estado_ddd of estado_ddds) {
     const ddd = estado_ddd.toString()
@@ -25,6 +27,7 @@ estado.addEventListener('change', async () => {
     const cidade = await result.json()
     lista_cidades.push(...cidade.cities)
   }
+  cidade.disabled = false
   cidade.innerHTML = '<option value="" selected>Selecione uma cidade</option>'
   for (const item of lista_cidades) {
     const nova_cidade = document.createElement('option')
@@ -53,11 +56,13 @@ async function obterEstados() {
 
 async function listarCidades(cidades: string[], cidade_create: any = null) {
   if (!cidade_create) {
+    cidade.innerHTML = '<option value="" selected>Selecione uma cidade</option>'
     for (const item of cidades) {
       const nova_cidade = document.createElement('option')
       nova_cidade.textContent = item
       cidade.appendChild(nova_cidade)
     }
+    
   } else {
     if (cidades.length === 0) {
       let lista_cidades: string[] = []
@@ -114,6 +119,7 @@ async function consultarCep() {
       // console.log(estado.children[i].textContent)
       const select = document.querySelector<HTMLSelectElement>('#estado')!
       select.selectedIndex = i
+      cidade.disabled = false
     }
     else {
       estado.children[i].removeAttribute('selected')

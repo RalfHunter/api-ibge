@@ -1,43 +1,56 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Consulta CEP</title>
-  </head>
-  <body>
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- <link rel="icon" type="image/svg+xml" href="/vite.svg" /> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Consulta CEP</title>
+</head>
+
+<body>
+  <div class="form">
     <form action="">
-      <div>
-        <label for="cep">CEP</label>
-        <input type="text" id="cep" placeholder="Ex.: 76984-000">
+      <div class="titulo">
+        <h1>Formulário</h1>
       </div>
-      <div>
-        <label for="logradouro">logradouro</label>
-        <input type="text" id="logradouro" placeholder="Rua da Flores">
-      </div>
-      <div>
-        <label for="numero">Número</label>
-        <input type="text" id="numero" placeholder="Ex.:7788">
-      </div>
-      <div>
-        <label for="bairro">Bairro</label>
-        <input type="text" id="bairro" placeholder="Barão deo Melgaço">
-      </div>
-      <div>
-        <label for="estado" id="selectEstado">Estado</label>
-        <select name="" id="estado">
-          <option value="" selected>Selecione um estado</option>
-        </select>
-        
-      </div>
-      <div>
-        <label for="cidade">Cidade</label>
-         <select name="" id="cidade">
-          <option value="" selected>Selecione uma cidade</option>
-        </select>
+      <div class="corpo">
+        <div>
+          <label for="cep">CEP</label>
+          <input type="text" id="cep" placeholder="Ex.: 76984-000">
+        </div>
+        <div>
+          <label for="logradouro">Logradouro</label>
+          <input type="text" id="logradouro" placeholder="Rua da Flores">
+        </div>
+        <div>
+          <label for="numero">Número</label>
+          <input type="text" id="numero" placeholder="Ex.:7788">
+        </div>
+        <div>
+          <label for="bairro">Bairro</label>
+          <input type="text" id="bairro" placeholder="Barão do Melgaço">
+        </div>
+        <div>
+          <label for="estado" id="selectEstado">Estado</label>
+          <select name="" id="estado">
+            <option value="" selected disabled hidden>Selecione um estado</option>
+          </select>
+
+        </div>
+        <div>
+          <label for="cidade" >Cidade</label>
+          <select name="" id="cidade" disabled>
+            <option value="" selected>Selecione uma cidade</option>
+          </select>
+        </div>
+        <div id="submit">
+          <button>Enviar</button>
+        </div>
       </div>
     </form>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  </div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
